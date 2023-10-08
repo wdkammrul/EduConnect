@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className="footer footer-center mb-10 mt-10 p-10 bg-base-200 text-base-content rounded">
+        <footer className="footer footer-center mb-10 mt-10 p-10 bg-base-200 text-base-content rounded-lg w-[400px] md:w-[740px] lg:w-full mx-auto">
             <nav className="grid grid-flow-col gap-4">
                 <li><NavLink to='/'>Home</NavLink></li>
                 <li><NavLink to='/banner'>Banner</NavLink></li>

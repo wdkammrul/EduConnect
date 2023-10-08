@@ -19,7 +19,7 @@ const Services = () => {
             <div>
                 <h1 className="text-5xl my-10 text-center">Services</h1>
             </div>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-4">
                 {/* <h1>All Services: {services.length}</h1> */}
 
                 {/* step-3  */}

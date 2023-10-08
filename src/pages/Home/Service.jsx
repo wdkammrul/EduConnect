@@ -10,7 +10,7 @@ const Service = ({service}) => {
     return (
         <div>
             {/* step-5  */}
-            <div className="card card-compact w-full h-[320px] bg-base-100 shadow-xl">
+            <div className="card card-compact mx-auto w-96 md:w-[340px] lg:w-full h-[320px] bg-base-100 shadow-xl">
                 <figure><img className="w-full h-60" src={image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>

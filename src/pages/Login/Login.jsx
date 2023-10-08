@@ -1,8 +1,13 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 
 const Login = () => {
+
+    // step-23 
+    const {signIn} = useContext(AuthContext)
 
 
     // step-1 
@@ -10,7 +15,19 @@ const Login = () => {
         e.preventDefault();
         console.log(e.currentTarget)
         const form = new FormData(e.currentTarget)
-        console.log(form)
+        const email = form.get('email')
+        const password = form.get('password')
+        console.log(email, password)
+
+        // step-24 
+        signIn(email, password)
+        .then(result => {
+            console.log(result.user)
+        })
+        .catch(error => {
+            console.error(error);
+        })
+        
     }
 
 

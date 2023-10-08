@@ -1,6 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Register = () => {
+
+    // step-12 
+    const { createUser } = useContext(AuthContext)
+
 
     // step-1 
     const handleRegister = e => {
@@ -12,6 +18,16 @@ const Register = () => {
         const email = form.get('email')
         const password = form.get('password')
         console.log(name, email, password)
+
+        
+        // step-13 Create User next-step-14 AuthProvider
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
     }
 
 

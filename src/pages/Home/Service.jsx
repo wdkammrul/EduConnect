@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
+
 // step-4 
 const Service = ({service}) => {
 
@@ -17,7 +19,9 @@ const Service = ({service}) => {
                     <p>{description}</p>
                     <p>Price: {price}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">{button}</button>
+                        <Link to={`/service/${id}`}>
+                            <button className="btn btn-primary">{button}</button>
+                         </Link>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "name": "Workshops and Webinars",
+        "image": "https://i.ibb.co/dj07Spj/images-1.jpg",
+        "price": "$99.99",
+        "description": "Code with confidence.",
+        "button": "Register Now"
+    },
+    {
+        "id": 2,
+        "name": "Career Fairs",
+        "image": "https://i.ibb.co/mhwjVDy/695000.jpg",
+        "price": "$129.99",
+        "description": "Network for career success.",
+        "button": "Enroll Today"
+    },
+    {
+        "id": 3,
+        "name": "Educational Conferences",
+        "image": "https://i.ibb.co/FW0L5rr/download.jpg",
+        "price": "$79.99",
+        "description": "Intensive language learning.",
+        "button": "Join Now"
+    },
+    {
+        "id": 4,
+        "name": "Training Programs",
+        "image": "https://i.ibb.co/9y8Rs7T/download-1.jpg",
+        "price": "$49.99",
+        "description": "Manage finances effectively.",
+        "button": "Reserve Your Spot"
+    },
+    {
+        "id": 5,
+        "name": "Leadership Mastery Forum",
+        "image": "https://i.ibb.co/wz6Jp12/k-p-aom-5261-leaderd.jpg",
+        "price": "$149.99",
+        "description": "Hone leadership skills.",
+        "button": "Apply Now"
+    },
+    {
+        "id": 6,
+        "name": "AI Workshop",
+        "image": "https://i.ibb.co/BPvRjkj/download-2.jpg",
+        "price": "$119.99",
+        "description": "Explore AI and ML.",
+        "button": "Get Started"
+    }
+]

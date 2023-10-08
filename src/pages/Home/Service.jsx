@@ -9,7 +9,7 @@ const Service = ({service}) => {
 
     return (
         <div>
-            {/* step-5  */}
+            {/* step-5 next step-6 Login */}
             <div className="card card-compact mx-auto w-96 md:w-[340px] lg:w-full h-[320px] bg-base-100 shadow-xl">
                 <figure><img className="w-full h-60" src={image} alt="Shoes" /></figure>
                 <div className="card-body">
@@ -17,7 +17,7 @@ const Service = ({service}) => {
                     <p>{description}</p>
                     <p>Price: {price}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-secondary">{button}</button>
+                        <button className="btn btn-primary">{button}</button>
                     </div>
                 </div>
             </div>

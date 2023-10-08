@@ -1,5 +1,5 @@
-import { Form, Link } from "react-router-dom";
-import Navbar from "../Shared/Navbar/Navbar";
+import { Link } from "react-router-dom";
+
 
 
 const Login = () => {
@@ -15,13 +15,13 @@ const Login = () => {
 
 
     return (
-        <div>       
+        <div>
             <div className="mx-auto">
-                <h2 className="text-3xl text-center my-10">Please Login</h2>
 
                 {/* step-2  */}
-                <form onSubmit={handleLogin} className="w-3/4 md:w-3/4 lg:w-1/2 mx-auto bg-slate-800 rounded-lg p-4">
+                <form onSubmit={handleLogin} className="w-3/4 md:w-3/4 lg:w-1/2 mx-auto bg-slate-800 rounded-lg p-4 mt-10">
                     <div className="form-control">
+                        <h2 className="text-3xl text-center my-6">Please Login</h2>
                         <label className="label">
                             <span className="label-text"></span>
                         </label>

@@ -7,7 +7,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 const Login = () => {
 
     // step-23 
-    const {signIn} = useContext(AuthContext)
+    const { signIn, signInUsingPopup } = useContext(AuthContext)
     const location = useLocation();
     const navigate = useNavigate()
     console.log('location in the login page ', location)
@@ -24,15 +24,15 @@ const Login = () => {
 
         // step-24 
         signIn(email, password)
-        .then(result => {
-            console.log(result.user)
+            .then(result => {
+                console.log(result.user)
 
-            navigate(location?.state? location.state : '/')
-        })
-        .catch(error => {
-            console.error(error);
-        })
-        
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(error => {
+                console.error(error);
+            })
+
     }
 
 
@@ -66,6 +66,8 @@ const Login = () => {
                         <span className="border"></span>
                         <br />
                         <p className="text-center mb-2">No account? Please <Link to='/register'> <span className="text-violet-500  underline font-extrabold">Register</span></Link></p>
+
+                        <button onClick={signInUsingPopup} className=" m-auto my-5 btn btn-primary ">Continue With Google </button>
                     </div>
                 </form>
             </div>

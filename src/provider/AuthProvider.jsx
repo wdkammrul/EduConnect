@@ -1,6 +1,8 @@
+/* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from "../firebase/firebase.config"
+import { toast } from "react-toastify";
 
 // step-3 
 export const AuthContext = createContext(null)
@@ -14,6 +16,14 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
 
     const [loading, setLoading] = useState(true)
+
+    const googleAuth = new GoogleAuthProvider();
+
+    const signInUsingPopup = () => {
+        return signInWithPopup(auth, googleAuth)
+            .then(res => toast('Successful Log In', res))
+            .catch(err => toast('Try Again', err))
+    }
 
 
     // step-10 
@@ -58,7 +68,9 @@ const AuthProvider = ({ children }) => {
 
         // step-22 next step-23 Login
         signIn,
-        loading
+        loading,
+        signInUsingPopup
+
     }
 
     return (

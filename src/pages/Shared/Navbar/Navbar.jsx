@@ -8,10 +8,10 @@ const Navbar = () => {
     const { user, logOut } = useContext(AuthContext)
 
     // step-19 
-    const handleSignOut = () =>{
+    const handleSignOut = () => {
         logOut()
-        .then()
-        .catch()
+            .then()
+            .catch()
     }
 
     const navLinks = <>
@@ -45,9 +45,20 @@ const Navbar = () => {
                 {/* step-18  */}
                 {
                     user ?
-                        
+
                         // step-20 next step-21 AuthProvider
-                        <button onClick={handleSignOut} className="btn btn-primary">Sign Out</button>
+                        // <button onClick={handleSignOut} className="btn btn-primary">Sign Out</button>
+                        <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                    <img src={user.photoURL} />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"> 
+                                <li><a>{user.email}</a></li>
+                                <li onClick={handleSignOut}><a>Logout</a></li>
+                            </ul>
+                        </div>
                         :
                         <Link to='/login'>
                             <button className="btn btn-primary">Log In</button>
@@ -55,7 +66,7 @@ const Navbar = () => {
                 }
 
             </div>
-        </div>
+        </div >
     );
 };
 

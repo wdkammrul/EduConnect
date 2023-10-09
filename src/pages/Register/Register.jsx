@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { toast } from "react-toastify";
+// import { Toast } from "react-toastify/dist/components";
 
 const Register = () => {
 
@@ -9,9 +10,7 @@ const Register = () => {
     const { createUser } = useContext(AuthContext)
 
 
-    const isStrongPassword = (password) => {
-        // Password must be at least 6 characters, containing at least one uppercase letter,
-        // one special character, and one number
+    const isStrongPassword = (password) => { 
         const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{6,}$/;
         return strongPasswordRegex.test(password);
     };
@@ -25,7 +24,7 @@ const Register = () => {
         const name = form.get('name')
         const email = form.get('email')
         const password = form.get('password')
-        console.log(name, email, password)
+        // console.log(name, email, password)
 
         if (!isStrongPassword(password)) {
             toast('Password must be at least 6 characters long and contain at least one uppercase letter, one special character, and one number');
@@ -35,10 +34,13 @@ const Register = () => {
         // step-13 Create User next-step-14 AuthProvider
         createUser(email, password)
             .then(result => {
-                console.log(result.user)
+                toast('Congratulations', result)
+                // console.log(result.user)  
             })
+
             .catch(error => {
-                console.error(error)
+                toast(error.code)
+                // console.error(error) 
             })
     }
 

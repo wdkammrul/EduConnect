@@ -6,11 +6,13 @@ import Services from "../pages/Home/Services";
 import Footer from "../pages/Home/Footer";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import ErrorPage from "../ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children:[
             {
                 path: '/',

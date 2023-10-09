@@ -5,6 +5,7 @@ import Banner from "./Banner";
 import AboutUs from "../AboutUs";
 // import Service from "./Service";
 import Services from "./Services";
+import ContactUs from "./ContactUs";
 
 const Home = () => {
 
@@ -16,6 +17,7 @@ const Home = () => {
             <Banner></Banner>
             <Services></Services>
             <AboutUs></AboutUs>
+            {/* <ContactUs></ContactUs> */}
         </div>
     );
 };

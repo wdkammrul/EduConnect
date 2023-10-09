@@ -13,28 +13,35 @@ const AuthProvider = ({ children }) => {
     // step-8 
     const [user, setUser] = useState(null)
 
+    const [loading, setLoading] = useState(true)
+
+
     // step-10 
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // step-21 
     const signIn = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     // step-15 
     const logOut = () => {
+        setLoading(true)
         return signOut(auth);
     }
 
     // step-14 
     useEffect(() => {
-      const unSubscribe =  onAuthStateChanged(auth, currentUser => {
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
             console.log('user in the state change', currentUser)
             setUser(currentUser)
+            setLoading(false)
         })
-        return () =>{
+        return () => {
             unSubscribe();
         }
     }, [])
@@ -47,10 +54,11 @@ const AuthProvider = ({ children }) => {
         createUser,
 
         // step-16 next step-17 Navbar
-        logOut, 
+        logOut,
 
         // step-22 next step-23 Login
-        signIn
+        signIn,
+        loading
     }
 
     return (

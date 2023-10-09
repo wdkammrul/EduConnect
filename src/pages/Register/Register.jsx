@@ -1,12 +1,20 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
 
     // step-12 
     const { createUser } = useContext(AuthContext)
 
+
+    const isStrongPassword = (password) => {
+        // Password must be at least 6 characters, containing at least one uppercase letter,
+        // one special character, and one number
+        const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{6,}$/;
+        return strongPasswordRegex.test(password);
+    };
 
     // step-1 
     const handleRegister = e => {
@@ -19,6 +27,10 @@ const Register = () => {
         const password = form.get('password')
         console.log(name, email, password)
 
+        if (!isStrongPassword(password)) {
+            toast('Password must be at least 6 characters long and contain at least one uppercase letter, one special character, and one number');
+            return;
+        }
         
         // step-13 Create User next-step-14 AuthProvider
         createUser(email, password)
@@ -59,8 +71,8 @@ const Register = () => {
 
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Register</button>
-                        
-                                                
+
+
                         <br />
                         <p className="text-center mb-2">Have an account already? <Link to='/login'> <span className="text-violet-500  underline font-extrabold">  Login</span></Link></p>
                     </div>

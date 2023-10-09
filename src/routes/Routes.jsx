@@ -7,6 +7,8 @@ import Footer from "../pages/Home/Footer";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import ErrorPage from "../ErrorPage";
+import PrivateRouts from "./PrivateRouts";
+import AboutUs from "../pages/AboutUs";
 
 const router = createBrowserRouter([
     {
@@ -16,7 +18,9 @@ const router = createBrowserRouter([
         children:[
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                // step-1 
+                loader: () => fetch('/services.json')
             }, 
             {
                 path: '/banner',
@@ -24,7 +28,8 @@ const router = createBrowserRouter([
             },
             {
                 path: '/services',
-                element: <Services></Services>
+                element: <PrivateRouts><Services></Services></PrivateRouts>,
+                
             }, 
             {
                 path: '/footer',
@@ -37,6 +42,10 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            }, 
+            {
+                path: '/about',
+                element: <AboutUs></AboutUs>
             }
            
         ]

@@ -21,7 +21,8 @@ console.log(greetign);
 #### Answer:A: `{}`
 
 <i>
-The typo in the variable name creates a new variable greetign, resulting in the output of an empty object {}.</i>
+
+A small typo in the variable name creates a new variable greetign, which is initialized as an empty object {}. So, the correct answer is A: {}. Always watch out for those sneaky typos in your code!</i>
 
 </p>
 </details>
@@ -47,7 +48,7 @@ sum(1, "2");
 #### Answer: C: `"12"`
 
 <i>
-The function adds a number and a string, triggering type coercion to concatenate them, resulting in the string "12"</i>
+The function sum adds the provided arguments, and in this case, it performs type coercion to concatenate a number and a string, resulting in the string "12". So, the correct answer is C: "12". Keep an eye on data types when working with arithmetic operations!</i>
 
 </p>
 </details>

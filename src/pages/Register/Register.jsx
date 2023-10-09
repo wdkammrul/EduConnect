@@ -34,8 +34,6 @@ const Register = () => {
     return (
         <div>
             <div className="mx-auto">
-
-
                 {/* step-2  */}
                 <form onSubmit={handleRegister} className="w-3/4 md:w-3/4 lg:w-1/2 mx-auto bg-slate-800 rounded-lg p-4 mt-10">
                     <div className="form-control">
@@ -61,8 +59,8 @@ const Register = () => {
 
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Register</button>
-
-
+                        
+                                                
                         <br />
                         <p className="text-center mb-2">Have an account already? <Link to='/login'> <span className="text-violet-500  underline font-extrabold">  Login</span></Link></p>
                     </div>

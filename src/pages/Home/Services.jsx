@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 // import { useEffect, useState } from "react";
 // import Service from "./Service";
+// import { Link } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Service from "./Service";
+// import Service from "./Service";
 import { useEffect, useState } from "react";
 // import Service from "./Service";
 
@@ -10,7 +11,7 @@ const Services = () => {
     // console.log(service)
 
     // const { name, id, image, price, description, button } = service
-          
+
     // step-2 
     // const services = useLoaderData()
     // console.log(services)
@@ -23,9 +24,10 @@ const Services = () => {
     // step-2 
     useEffect(() => {
         fetch('services.json')
-        .then(res => res.json())
-        .then(data => setServices(data)) 
-    , []})
+            .then(res => res.json())
+            .then(data => setServices(data))
+            , []
+    })
 
     return (
         <div>
@@ -37,8 +39,20 @@ const Services = () => {
 
                 {/* step-3  */}
                 {
-                    services.map(service => <Service key={service.id} service={service}></Service>)
-                 }
+                    services.map(service => <div key={service.id} className="card card-compact mx-auto w-96 md:w-[340px] lg:w-full h-[320px] bg-base-100 shadow-xl">
+                        <figure><img className="w-full h-60" src={service.image} alt="Shoes" /></figure>
+                        <div className="card-body">
+                            <h2 className="card-title">{service.name}</h2>
+                            <p>{service.description}</p>
+                            <p>Price: {service.price}</p>
+                            <div className="card-actions justify-start">
+                                <Link to={`/service/${service.id}`}>
+                                    <button className="btn btn-primary">{service.button}</button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>)
+                }
 
 
                 {/* {

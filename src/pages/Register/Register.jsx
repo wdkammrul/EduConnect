@@ -10,8 +10,8 @@ const Register = () => {
     const { createUser } = useContext(AuthContext)
 
 
-    const isStrongPassword = (password) => { 
-        const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]).{6,}$/;
+    const isStrongPassword = (password) => {
+        const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}\\[\]:;<>,.?~\\/-]).{6,}$/;
         return strongPasswordRegex.test(password);
     };
 
@@ -21,16 +21,16 @@ const Register = () => {
         // console.log(e.currentTarget)
         const form = new FormData(e.currentTarget)
         // console.log(form.get('email'))
-        const name = form.get('name')
+        // const name = form.get('name')
         const email = form.get('email')
         const password = form.get('password')
         // console.log(name, email, password)
 
         if (!isStrongPassword(password)) {
-            toast('Password must be at least 6 characters long and contain at least one uppercase letter, one special character, and one number');
+            toast('Password must be at least 6 characters long and contain at least one uppercase letter, one special character');
             return;
         }
-        
+
         // step-13 Create User next-step-14 AuthProvider
         createUser(email, password)
             .then(result => {

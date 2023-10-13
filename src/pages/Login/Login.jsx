@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 
 
@@ -10,7 +11,7 @@ const Login = () => {
     const { signIn, signInUsingPopup } = useContext(AuthContext)
     const location = useLocation();
     const navigate = useNavigate()
-    console.log('location in the login page ', location)
+    // console.log('location in the login page ', location)
 
 
     // step-1 
@@ -25,12 +26,14 @@ const Login = () => {
         // step-24 
         signIn(email, password)
             .then(result => {
-                console.log(result.user)
+                // console.log(result.user)
+                toast('Congratulations', result)
 
                 navigate(location?.state ? location.state : '/')
             })
             .catch(error => {
-                console.error(error);
+                // console.error(error);
+                toast(error.code)
             })
 
     }

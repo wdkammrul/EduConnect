@@ -21,8 +21,12 @@ const AuthProvider = ({ children }) => {
 
     const signInUsingPopup = () => {
         return signInWithPopup(auth, googleAuth)
-            .then(res => toast('Successful Log In', res))
-            .catch(err => toast('Try Again', err))
+            // .then(res => toast('Successful Log In', res))
+            // .catch(err => toast('Try Again', err))
+
+            .then(() => toast('Successful Log In'))
+            .catch(err => toast('Try Again', err.message))
+
     }
 
 
@@ -47,7 +51,7 @@ const AuthProvider = ({ children }) => {
     // step-14 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            console.log('user in the state change', currentUser)
+            // console.log('user in the state change', currentUser)
             setUser(currentUser)
             setLoading(false)
         })

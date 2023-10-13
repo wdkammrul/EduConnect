@@ -1,28 +1,33 @@
 /* eslint-disable react/prop-types */
 
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLoaderData, useParams } from "react-router-dom";
+
+// import { Link } from "react-router-dom";
 
 // step-4 
-const Service = ({service}) => {
+const Service = () => {
 
     // console.log(service.name)
+    const [singleService, setSingleService] = useState(null)
+    const services = useLoaderData()
+    const { id } = useParams()
 
-    const { name, id, image, price, description,button } = service
+    useEffect(() => {
+        const aService = services.find(service => service.id === parseInt(id))
+        setSingleService(aService)
+    }, [id, services])
+
+    // const { name, id, image, price, description,button } = service
 
     return (
-        <div>
-            {/* step-5 next step-6 Login */}
-            <div className="card card-compact mx-auto w-96 md:w-[340px] lg:w-full h-[320px] bg-base-100 shadow-xl">
-                <figure><img className="w-full h-60" src={image} alt="Shoes" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">{name}</h2>
-                    <p>{description}</p>
-                    <p>Price: {price}</p>
-                    <div className="card-actions justify-start">
-                        <Link to={`/service/${id}`}>
-                            <button className="btn btn-primary">{button}</button>
-                         </Link>
-                    </div>
+        <div className="hero bg-base-200">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <img src={singleService?.image} className="max-w-sm rounded-lg shadow-2xl" />
+                <div>
+                    <h1 className="text-5xl font-bold">{singleService?.name}</h1>
+                    <p className="py-6">{singleService?.description}</p>
+                    <button className="btn btn-primary">{singleService?.button}</button>
                 </div>
             </div>
         </div>

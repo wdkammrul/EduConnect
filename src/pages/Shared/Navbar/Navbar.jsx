@@ -19,7 +19,11 @@ const Navbar = () => {
         <li><NavLink to='/banner'>Banner</NavLink></li>
         <li><NavLink to='/services'>Services</NavLink></li>
         <li><NavLink to='/about'>About Us</NavLink></li>
-        <li><NavLink to='/contact'>Contact</NavLink></li>
+        <li>
+            {
+                user ? <NavLink to='/contact'>Contact</NavLink> : <></>
+            }
+        </li>
 
     </>
 
@@ -55,7 +59,7 @@ const Navbar = () => {
                                     <img src={user.photoURL} />
                                 </div>
                             </label>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"> 
+                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                                 <li><a>{user.email}</a></li>
                                 <li onClick={handleSignOut}><a>Logout</a></li>
                             </ul>
